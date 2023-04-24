@@ -1,9 +1,9 @@
 /* Markdown */
-:root{
+:root {
   --maincolor: rgb(237 106 94);
-  --bordercl:rebeccapurple;
-  --callouctcolor:dodgerblue;
-  --hovercolor:navy;
+  --bordercl: rebeccapurple;
+  --callouctcolor: dodgerblue;
+  --hovercolor: navy;
   --darkMaincolor: rgb(237 106 94);
 }
 
@@ -20,6 +20,8 @@ html {
 }
 
 body {
+  --content-max-width: 800px;
+
   --primary-color: rgb(237 106 94);
 
   --normal-color: #333;
@@ -55,7 +57,7 @@ header {
   margin: 1em 0;
   line-height: 2.5em;
   font-family: content_font;
-  color: rgb(237 106 94); 
+  color: rgb(237 106 94);
 }
 
 header .main {
@@ -64,8 +66,8 @@ header .main {
 }
 
 a {
-  color: rgb(237 106 94); 
-  text-decoration:none;
+  color: rgb(237 106 94);
+  text-decoration: none;
 }
 
 a:hover {
@@ -102,12 +104,12 @@ a:hover {
   font-family: content_font;
 }
 
-.article-title > a {
+.article-title>a {
   text-decoration: none;
   color: inherit;
 }
 
-.article-title > a:hover {
+.article-title>a:hover {
   text-decoration: underline;
 }
 
@@ -118,7 +120,7 @@ a:hover {
   color: var(--secondary-color);
 }
 
-.draft-label{ 
+.draft-label {
   color: var(--bordercl);
   text-decoration: none;
   padding: 2px 4px;
@@ -134,7 +136,8 @@ a:hover {
 article {
   --article-space: 30px;
   --normal-color: #c3c3c3;
-  --link-color: rgb(237 106 94);
+  --primary-color: rgb(237 106 94);
+  color: var(--normal-color);
 }
 
 article p {
@@ -146,7 +149,6 @@ article p {
 
   font-size: 18px;
   line-height: 1.8;
-  color: var(--normal-color);
   word-break: break-word;
 }
 
@@ -155,16 +157,18 @@ article .article-time {
 }
 
 article a {
-  color: var(--link-color);
-  text-decoration-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
-article h2, article h3, article h4, article h5, article h6 {
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
   max-inline-size: var(--content-max-width);
   padding-inline: 30px;
   margin-inline: auto;
   line-height: 1.5;
-  color: var(--normal-color);
 }
 
 article h2 {
@@ -182,10 +186,69 @@ article h4 {
   font-size: 19px;
 }
 
+.meta {
+  color: #999;
+  letter-spacing: -0.5px;
+}
+
+article ul,
+article ol {
+  max-inline-size: var(--content-max-width);
+  padding-inline: 30px;
+  margin-block: 15px;
+  margin-inline: auto;
+  color: var(--normal-color);
+  line-height: 1.5;
+}
+
+article ol {
+  counter-reset: li-count;
+}
+
+article ul li,
+article ol li {
+  display: block;
+  margin-block: 5px;
+  position: relative;
+}
+
+article ol li {
+  counter-increment: li-count;
+}
+
+article ul li::before {
+  content: '';
+  display: inline-block;
+  inline-size: 6px;
+  block-size: 6px;
+
+  margin-inline-end: 10px;
+
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+article ol li::before {
+  content: counter(li-count) '. ';
+  color: var(--primary-color);
+}
+
+article ol li > p {
+  content: counter(li-count) '. ';
+}
 
 
 
-article p code, article ul code {
+
+
+
+
+
+
+
+article p code,
+article ul code {
   padding-inline: 4px;
   border-radius: var(--border-radius);
   background: rgba(237, 106, 94, 0.3);
@@ -218,11 +281,11 @@ article hr {
   border: none;
 }
 
-article hr::after{
+article hr::after {
   content: '';
   display: block;
   block-size: 1px;
-  background-color:var(--tertiary-color);
+  background-color: var(--tertiary-color);
 }
 
 article blockquote {
@@ -235,6 +298,69 @@ article blockquote {
   font-size: 16px;
   color: var(--secondary-color);
 }
+
+
+
+article figcaption {
+  font-size: 12px;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-block-start: 5px;
+}
+
+
+
+
+
+
+
+.figure-img {
+  max-inline-size: var(--content-max-width);
+  padding-inline: 30px;
+  margin-block: 15px;
+  margin-inline: auto;
+}
+
+.figure-img img {
+  display: block;
+  max-inline-size: 100%;
+  margin-inline: auto;
+  border-radius: var(--border-radius);
+}
+
+.figure-video {
+  max-inline-size: var(--content-max-width);
+  padding-inline: 30px;
+  margin-block: 15px;
+  margin-inline: auto;
+}
+
+.figure-video video {
+  display: block;
+  max-inline-size: 100%;
+  margin-inline: auto;
+}
+
+.figure-iframe {
+  inline-size: 100%;
+  margin-block: 15px;
+}
+
+.figure-iframe iframe {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: var(--content-max-width);
+  margin-inline: auto;
+  block-size: 640px;
+  border: 1px solid var(--tertiary-color);
+  border-radius: var(--border-radius);
+}
+
+strong {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
 
 
 
@@ -279,25 +405,29 @@ footer {
   padding: 2rem 0rem;
   margin-top: 2rem;
 }
+
 .soc {
   display: flex;
   align-items: center;
   border-bottom: none;
 }
+
 .border {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   border: 1px solid;
 }
+
 .footer-info {
   padding: var(--footer-padding);
 }
 
 
-svg{
+svg {
   max-height: 15px;
 }
-.soc:hover{
+
+.soc:hover {
   color: white;
 }
 
@@ -305,9 +435,11 @@ svg{
   position: relative;
   -webkit-overflow-scrolling: touch;
 }
+
 .highlight pre code[class*="language-"] {
   -webkit-overflow-scrolling: touch;
 }
+
 .highlight pre code[class*="language-"]::before {
   background: black;
   border-radius: 0 0 0.25rem 0.25rem;
@@ -328,45 +460,52 @@ svg{
   background: #f7df1e;
   color: black;
 }
+
 .highlight pre code[class*='language-yml']::before,
 .highlight pre code[class*='language-yaml']::before {
   content: 'yaml';
   background: #f71e6a;
   color: white;
 }
+
 .highlight pre code[class*='language-shell']::before,
 .highlight pre code[class*='language-bash']::before,
 .highlight pre code[class*='language-sh']::before {
   content: 'shell';
   background: green;
-  color:white
+  color: white
 }
-.highlight pre code[class*='language-json']::before{
+
+.highlight pre code[class*='language-json']::before {
   content: 'json';
   background: dodgerblue;
-  color: #000000 
+  color: #000000
 }
+
 .highlight pre code[class*='language-python']::before,
 .highlight pre code[class*='language-py']::before {
   content: 'py';
   background: blue;
-  color: yellow ;
+  color: yellow;
 }
-.highlight pre code[class*='language-css']::before{
+
+.highlight pre code[class*='language-css']::before {
   content: 'css';
   background: cyan;
-  color: black ;
+  color: black;
 }
-.highlight pre code[class*='language-go']::before{
+
+.highlight pre code[class*='language-go']::before {
   content: 'Go';
   background: cyan;
-  color: royalblue ;
+  color: royalblue;
 }
+
 .highlight pre code[class*='language-md']::before,
-.highlight pre code[class*='language-md']::before{
+.highlight pre code[class*='language-md']::before {
   content: 'Markdown';
   background: royalblue;
-  color: whitesmoke ;
+  color: whitesmoke;
 }
 
 /* table */
@@ -375,13 +514,13 @@ table {
   border-collapse: collapse;
 }
 
-table th{
+table th {
   padding: 6px 13px;
   border: 1px solid #dfe2e5;
   font-size: large;
 }
 
-table td{
+table td {
   padding: 6px 13px;
   border: 1px solid #dfe2e5;
 }
@@ -409,16 +548,16 @@ table td{
   color: var(--secondary-color);
 }
 
-.page-footer > a {
+.page-footer>a {
   text-decoration: none;
   color: inherit;
 }
 
-.page-footer > .author {
+.page-footer>.author {
   text-decoration: underline;
 }
 
-.page-footer > a:hover {
+.page-footer>a:hover {
   color: var(--primary-color);
 }
 
@@ -438,7 +577,8 @@ code {
   border-collapse: collapse;
 }
 
-.table-container th, .table-container td {
+.table-container th,
+.table-container td {
   font-size: 14px;
   color: var(--normal-color);
   border: 1px solid var(--tertiary-color);
@@ -547,6 +687,7 @@ figure h4 {
   margin: 0;
   margin-bottom: 1em;
 }
+
 figure h4::before {
   content: '↳ ';
 }
@@ -577,17 +718,6 @@ pre code {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
-  font-size: 1.2rem;
-  /* margin-top: 2em; */
-}
-
-
-.meta {
-  color: #999;
-  letter-spacing: -0.5px;
-}
-
 /* Footer */
 footer {
   display: flex;
@@ -596,16 +726,13 @@ footer {
   padding: 2rem 0rem;
   margin-top: 2rem;
 }
-.soc {
-  display: flex;
-  align-items: center;
-  border-bottom: none;
-}
+
 .border {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   border: 1px solid;
 }
+
 .footer-info {
   padding: var(--footer-padding);
 }
@@ -615,10 +742,6 @@ footer {
   margin-bottom: 0;
 }
 
-time {
-  font-size: 12px;
-  color: grey;
-}
 
 /* Posts */
 article .title {
@@ -646,16 +769,3 @@ article .title {
   background-color: #fff;
   color: var(--callouctcolor);
 }
-
-.site-description {
-  display: flex;
-  justify-content: space-between;
-}
-
-svg{
-  max-height: 15px;
-}
-.soc:hover{
-  color: white;
-}
-
