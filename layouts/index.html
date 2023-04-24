@@ -7,11 +7,11 @@
 		{{ partial "head.html" . }}
 
 		<main class="list">
-			<div class="site-description">
+			<h1>
 				{{- if isset .Site.Params "subtitle" -}}
 				<p>{{ .Site.Params.Subtitle | markdownify }}</p>
 				{{- end -}}
-			</div>
+			</h1>
 
 			{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 			{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}

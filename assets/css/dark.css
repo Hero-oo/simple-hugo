@@ -42,16 +42,14 @@ blockquote {
   color: black;
 }
 
-.tags a {
-}
-.tags a:hover {
-  border-bottom: 1.5px solid var(--darkMaincolor);
-  color: rgb(237 106 94)
-}
 
 .site-title a {
   color: white;
   text-decoration: none !important;
+}
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  color: #c3c3c3;
 }
 
 .header nav,

@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h1 class="page-title">All tags</h1>
+<h1>All tags</h1>
 
 {{ $biggest := 1 }}
 {{ $smallest := 1 }}
@@ -8,7 +8,7 @@
 {{ $size := $min }}
 
 {{ $data := .Data }}
-<div class="tag-cloud">
+<div class="article-list">
 	<ul class="tags">
 		{{ range $key, $value := .Data.Terms.ByCount }}
 		{{ $size := (add (mul (div $value.Count $biggest) (sub $max $min)) $min) }}
