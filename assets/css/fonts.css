@@ -1,0 +1,15 @@
+@font-face {
+  font-display: swap;
+  font-family: title_font;
+  src: url('../fonts/title_font.ttf');
+}
+@font-face {
+  font-display: swap;
+  font-family: content_font;
+  src: url('../fonts/content_font.ttf');
+}
+@font-face {
+  font-display: swap;
+  font-family: common_font;
+  src: url('../fonts/common_font.ttf');
+}

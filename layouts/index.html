@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+{{ partial "header.html" . }}
+
+<body>
+	<div class="content">
+		{{ partial "head.html" . }}
+
+		<main class="list">
+			<div class="site-description">
+				{{- if isset .Site.Params "subtitle" -}}
+				<p>{{ .Site.Params.Subtitle | markdownify }}</p>
+				{{- end -}}
+			</div>
+
+			{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+			{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+			<ul class="article-list">
+				{{ range $paginator.Pages }}
+				<li class="article-item">
+					<h2 class="article-title">
+					<a href="{{ .RelPermalink }}">{{.Title}} </a>
+					</h2>
+					<time class="article-time">
+						{{ dateFormat "2006-01-02" .Date }}
+						{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}
+					</time>
+				</li>
+				<!-- <br>{{ template "partials/pagedescription.html" . }}
+					<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
+				  -->
+				{{ end }}
+			</ul>
+			{{ template "partials/paginator.html" . }}
+		</main>
+		{{ partial "footer.html" . }}
+	</div>
+
+</body>
+
+</html>
