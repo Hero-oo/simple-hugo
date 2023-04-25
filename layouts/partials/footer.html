@@ -1,13 +1,13 @@
-<footer>
+<footer class="page-footer">
   <div style="display:flex">
     {{- range $index, $key := .Site.Params.Social -}}
     <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}"><i data-feather="{{ $key.icon }}"></i></a>
     <a class="border"></a>
     {{- end -}}
   </div>
-  <div class="footer-info">
+  <div>
     {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . }} | {{ end }} <a
-      href="https://github.com/Hero-oo/simple-hugo">Simple Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+      href="https://github.com/Hero-oo/simple-hugo">Simple Theme</a> | Build with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>
 {{ if not .Site.IsServer }}

@@ -1,25 +1,41 @@
 body {
   color: white;
-  background-color: #202124;
+  --backgroud: #202124;
+  background-color: var(--backgroud);
+  --blockquote-bg-color: var(--backgroud);
 }
 
-::-moz-selection {
-  background: blue;
-  color: #fff;
-  text-shadow: none;
+.draft-label {
+  color: var(--primary-color);
+  background-color: blue;
 }
+
+article {
+  color: var(--dark-font-color);
+}
+
+article ul,
+article ol {
+  color: var(--dark-font-color);
+}
+
+.table-container th,
+.table-container td {
+  color: var(--dark-font-color);
+  border: 1px solid var(--tertiary-color);
+}
+
 
 ::selection {
-  background: red;
-  color: #fff;
-  text-shadow: none;
+  background: var(--primary-color);
+  color: var(--backgroud);
 }
 
 hr {
   border-top: 3px dotted blue;
 }
 code {
-  background-color: lightblue;
+  background-color: #333;
   color: black;
   text-decoration: bold;
   padding: 0.1em 0.2em;
@@ -30,9 +46,6 @@ pre {
   overflow-x: auto;
   padding: 1em;
 }
-blockquote {
-  border-color: blue;
-}
 
 
 .site-description a {
@@ -40,16 +53,6 @@ blockquote {
 }
 .site-description a:hover {
   color: black;
-}
-
-
-.site-title a {
-  color: white;
-  text-decoration: none !important;
-}
-
-article h1, article h2, article h3, article h4, article h5, article h6 {
-  color: #c3c3c3;
 }
 
 .header nav,
@@ -60,13 +63,7 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
 .highlight {
   background-color: #333;
 }
-.soc:hover {
-  color: rgb(237 106 94); 
-}
-.draft-label {
-  color: var(--darkMaincolor);
-  background-color: blue;
-}
+
 .highlight pre code[class=language-javaScript]::before,
 .highlight pre code[class="language-js"]::before {
   content: "js";
