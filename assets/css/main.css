@@ -245,6 +245,7 @@ article ol > li::before {
 }
 
 article p code,
+article ol code,
 article ul code {
   padding-inline: 4px;
   border-radius: var(--border-radius);
@@ -394,39 +395,24 @@ svg {
 
 
 
-.figure-img {
+img {
   max-inline-size: var(--content-max-width);
-  padding-inline: 30px;
   margin-block: 15px;
-  margin-inline: auto;
-}
-
-.figure-img img {
   display: block;
   max-inline-size: 100%;
-  margin-inline: auto;
   border-radius: var(--border-radius);
 }
 
-.figure-video {
+video {
   max-inline-size: var(--content-max-width);
-  padding-inline: 30px;
   margin-block: 15px;
-  margin-inline: auto;
-}
-
-.figure-video video {
   display: block;
   max-inline-size: 100%;
-  margin-inline: auto;
 }
 
-.figure-iframe {
+iframe {
   inline-size: 100%;
   margin-block: 15px;
-}
-
-.figure-iframe iframe {
   display: block;
   inline-size: 100%;
   max-inline-size: var(--content-max-width);
