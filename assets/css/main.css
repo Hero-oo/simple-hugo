@@ -219,8 +219,8 @@ article ol li {
   counter-increment: li-count;
 }
 
-article ul li::before,
-article ol li::before {
+/* article ol li::before, */
+article ul li::before {
   content: '';
   display: inline-block;
   inline-size: 6px;
@@ -231,9 +231,17 @@ article ol li::before {
   background-color: var(--primary-color);
 }
 
-article ul li > p,
-article ol li > p {
+article ol li > p,
+article ul li > p {
   display: inline;
+}
+
+article ol > li::before {
+  inline-size: 6px;
+  block-size: 6px;
+  margin-inline-end: 4px;
+  content: counter( li-count) '. ';
+  color: var(--primary-color);
 }
 
 article p code,
