@@ -219,27 +219,21 @@ article ol li {
   counter-increment: li-count;
 }
 
-article ul li::before {
+article ul li::before,
+article ol li::before {
   content: '';
-  display: none;
   display: inline-block;
   inline-size: 6px;
   block-size: 6px;
-
   margin-inline-end: 10px;
-
   vertical-align: middle;
   border-radius: 50%;
   background-color: var(--primary-color);
 }
 
-article ol li::before {
-  content: counter(li-count) '. ';
-  color: var(--primary-color);
-}
-
+article ul li > p,
 article ol li > p {
-  content: counter(li-count) '. ';
+  display: inline;
 }
 
 article p code,
